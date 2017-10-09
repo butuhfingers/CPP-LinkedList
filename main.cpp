@@ -1,9 +1,14 @@
 #include <iostream>
+#include <fstream>
 #include "LinkedList.h"
 
 using namespace std;
 
 int main() {
+    //Open a file
+//    ofstream outputStream;
+//    outputStream.open("array.txt");
+
     int arraySize = 2000;
     //Create the array
     int integerArray[arraySize];
@@ -22,16 +27,19 @@ int main() {
     cout << "------------Start the pointer arithmetic--------------" << endl;
 
     //Create a pointer
-    int* pointer = integerArray;
+    int* pointer = &integerArray[0];
     int* endPointer = &integerArray[arraySize-1];
     i = 0;
 
     //Go through the "pointer array" as a pointer
     while(pointer <= endPointer){
-        cout << "Pointer[" << i++ << "]: " << *pointer << endl;
-        pointer++;
+        //       outputStream << "Pointer[" << i << "]: " << *pointer << "\n";
+        cout << "Pointer[" << i << "]: " << *pointer << endl;
+        pointer++, i++;
     }
     integerList.PrintList();
+
+//    outputStream.close();
 
     return 0;
 }
